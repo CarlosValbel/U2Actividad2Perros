@@ -1,0 +1,32 @@
+﻿@model U2Actividad2.Models.ViewModels.PaisViewModel
+@{
+    Layout = "Layout";
+}
+<main class="main">
+
+    <section class="nav">
+        <h3>Razas por país</h3>
+        <nav>
+            <a href="index.html">Listado Alfabético de Razas</a>
+        </nav>
+    </section>
+
+    <section class="list">
+        @foreach (var pais in Model.Pais)
+        {
+            <h4>@pais.Nombre</h4>
+            <ul>
+                @foreach (var p in pais.Razas)
+                {
+                    <li>
+                        <a href="~/Home/raza/@(p.Nombre)">
+                            <img src="~/imgs_perros/@(p.Id)_0.jpg" />
+                            @p.Nombre
+                        </a>
+                    </li>
+                }
+
+            </ul>
+        }
+    </section>
+</main>
